@@ -1,4 +1,4 @@
-package ray
+package rayo
 
 type Ray struct {
 	A Vec3 // origin

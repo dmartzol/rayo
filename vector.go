@@ -1,4 +1,4 @@
-package ray
+package rayo
 
 import "math"
 
