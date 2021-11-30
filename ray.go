@@ -1,8 +1,8 @@
 package rayo
 
 type Ray struct {
-	Origin    Vector // A
-	Direction Vector // B
+	Origin    Vector
+	Direction Vector
 }
 
 func NewRay(a, b Vector) Ray {
