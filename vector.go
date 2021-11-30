@@ -2,31 +2,31 @@ package rayo
 
 import "math"
 
-type Vec3 struct {
+type Vector struct {
 	X, Y, Z float64
 }
 
-func NewVector(x, y, z float64) Vec3 {
-	return Vec3{X: x, Y: y, Z: z}
+func NewVector(x, y, z float64) Vector {
+	return Vector{X: x, Y: y, Z: z}
 }
 
-func (v Vec3) Mul(t float64) Vec3 {
+func (v Vector) Mul(t float64) Vector {
 	return v.Scale(t)
 }
 
-func (v Vec3) Scale(t float64) Vec3 {
-	return Vec3{v.X * t, v.Y * t, v.Z * t}
+func (v Vector) Scale(t float64) Vector {
+	return Vector{v.X * t, v.Y * t, v.Z * t}
 }
 
-func (v Vec3) Add(b Vec3) Vec3 {
-	return Vec3{v.X + b.X, v.Y + b.Y, v.Z + b.Z}
+func (v Vector) Add(b Vector) Vector {
+	return Vector{v.X + b.X, v.Y + b.Y, v.Z + b.Z}
 }
 
-func (v Vec3) Modulo() float64 {
+func (v Vector) Modulo() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z)
 }
 
-func (v Vec3) UnitVector() Vec3 {
+func (v Vector) UnitVector() Vector {
 	modulo := v.Modulo()
-	return Vec3{X: v.X / modulo, Y: v.Y / modulo, Z: v.Z / modulo}
+	return Vector{X: v.X / modulo, Y: v.Y / modulo, Z: v.Z / modulo}
 }

@@ -1,30 +1,30 @@
 package rayo
 
 type Ray struct {
-	A Vec3 // origin
-	B Vec3 // direction
+	A Vector // origin
+	B Vector // direction
 }
 
-func NewRay(a, b Vec3) Ray {
+func NewRay(a, b Vector) Ray {
 	return Ray{a, b}
 }
 
-func (r Ray) Origin() Vec3 {
+func (r Ray) Origin() Vector {
 	return r.A
 }
 
-func (r Ray) Direction() Vec3 {
+func (r Ray) Direction() Vector {
 	return r.B
 }
 
-func (r Ray) PointAt(t float64) Vec3 {
+func (r Ray) PointAt(t float64) Vector {
 	return r.A.Add(r.B.Mul(t))
 }
 
-func Color(ray Ray) Vec3 {
+func Color(ray Ray) Vector {
 	unitDirection := ray.Direction().UnitVector()
 	t := 0.5 * (unitDirection.Y + 1.0) // -1 < y < 1 => 0 < (y+1)*0.5 < 1.0 => 0 < t < 1
-	a := Vec3{1.0, 1.0, 1.0}.Mul(1.0 - t)
-	b := Vec3{.5, .7, 1.0}.Mul(t)
+	a := Vector{1.0, 1.0, 1.0}.Mul(1.0 - t)
+	b := Vector{.5, .7, 1.0}.Mul(t)
 	return a.Add(b)
 }
