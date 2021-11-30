@@ -22,6 +22,10 @@ func (v Vector) Add(b Vector) Vector {
 	return Vector{v.X + b.X, v.Y + b.Y, v.Z + b.Z}
 }
 
+func (v Vector) Sub(b Vector) Vector {
+	return Vector{v.X - b.X, v.Y - b.Y, v.Z - b.Z}
+}
+
 func (v Vector) Modulo() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z)
 }
@@ -29,4 +33,8 @@ func (v Vector) Modulo() float64 {
 func (v Vector) UnitVector() Vector {
 	modulo := v.Modulo()
 	return Vector{X: v.X / modulo, Y: v.Y / modulo, Z: v.Z / modulo}
+}
+
+func (v Vector) Dot(b Vector) float64 {
+	return v.X*b.X + v.Y*b.Y + v.Z*b.Z
 }
